@@ -14,7 +14,7 @@ function Pic({ b, className = "", children }: { b: Barber; className?: string; c
 
 /* ============================ DISCOVER ============================ */
 export function Discover() {
-  const { barbers, dist, setDist, openProfile, toggleFav, isFav, go } = useApp();
+  const { barbers, dist, setDist, openProfile, toggleFav, isFav, go, signOut } = useApp();
   const [chip, setChip] = useState("Providers");
   const featured = barbers.find((b) => b.featured)!;
   const near = barbers.filter((b) => b.distance <= dist).sort((a, b) => a.distance - b.distance);
@@ -22,7 +22,8 @@ export function Discover() {
   const onChip = (c: string) => { setChip(c); if (c === "Appointments") go("appointments"); else if (c === "Favorites") go("favorites"); else if (c === "Coupons") go("coupons"); };
   return (
     <>
-      <div className="greet">Good morning, Jordan 👋</div>
+      <div className="between"><div className="greet">Good morning, Jordan 👋</div>
+        <button className="btn ghost" style={{ width: "auto", padding: 4 }} onClick={signOut} title="Sign out"><Icon d={I.signout} size={18} /></button></div>
       <div className="scr-h"><div><h1>Find a barber</h1></div></div>
       <div className="search"><Icon d={I.search} size={17} /><input placeholder="Looking for something?" /></div>
       <div className="chips">{chips.map((c) => <button key={c} className={`chip ${chip === c ? "on" : ""}`} onClick={() => onChip(c)}>{c}</button>)}</div>

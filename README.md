@@ -5,7 +5,7 @@ discover barbers near them, book an open chair, and manage appointments; barbers
 dashboard and subscribe (free trial → Yearly Pro) to get listed and featured. Built as a
 portfolio demo.
 
-**Live:** https://chairtime-demo.vercel.app
+**Live:** https://chairtime-demo-app.vercel.app
 
 > Demo notes: deterministic **mock data**, phone-framed mobile UI; Stripe shown in **test
 > mode**. Production uses Supabase Auth + Row-Level Security + Storage and live Stripe.
